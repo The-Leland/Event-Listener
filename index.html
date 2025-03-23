@@ -1,0 +1,39 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Header Program</title>
+</head>
+<body>
+    <h1 id="header">This part right here, yeah, this part here, it's the header.</h1>
+    <input type="text" id="inputField" placeholder="Type here..." maxlength="50">
+    <button id="deleteButton">Delete Header</button>
+
+    <script>
+        const header = document.getElementById('header');
+        const inputField = document.getElementById('inputField');
+        const deleteButton = document.getElementById('deleteButton');
+
+        // update header automatically
+        inputField.addEventListener('input', () => {
+            header.textContent = inputField.value;
+        });
+
+        // disable input after 50 characters
+        inputField.addEventListener('input', () => {
+            if (inputField.value.length >= 50) {
+                inputField.disabled = true;
+            }
+        });
+
+        // delete the header when the button is clicked
+        deleteButton.addEventListener('click', () => {
+            header.remove();
+        });
+    </script>
+</body>
+</html>
